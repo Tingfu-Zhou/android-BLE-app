@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="32dp"
+    android:gravity="top|start">  <!-- [MOD] 原来是 center -->
+
+    <!-- [ADD] 右上角“恢复”按钮：默认隐藏，暂停时显示 -->
+    <Button
+        android:id="@+id/btnResume"
+        android:text="已暂停app操作，点击恢复"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btnConnect"
+        android:text="连接 / 断开"
+        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tvConn"
+        android:text="连接状态：未连接"
+        android:textSize="16sp"
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvNeed"
+        android:text="需要发送动作：—"
+        android:textSize="16sp"
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/tvLast"
+        android:text="最近发送动作：—"
+        android:textSize="16sp"
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+</LinearLayout>
