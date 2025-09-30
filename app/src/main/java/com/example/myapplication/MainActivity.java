@@ -425,19 +425,22 @@ public class MainActivity extends AppCompatActivity {
                 return;
             }
 
-            if (cmd == (0x80 + CMD_SET_PATTERN) || cmd == (0x80 + CMD_STOP_ALL) || cmd == (0x80 + CMD_QUERY_STATE)) {
+            if (cmd == (0x80 + CMD_SET_PATTERN)
+                    || cmd == (0x80 + CMD_STOP_ALL)
+                    || cmd == (0x80 + CMD_QUERY_STATE)
+                    || cmd == (0x80 + CMD_RESUME_APP)) {
                 // ACK：payload = SEQ(1) STATUS(1)
                 if (payload.length >= 2) {
                     int ackSeq = payload[0] & 0xFF;
                     int status = payload[1] & 0xFF;
                     Log.i(TAG, String.format(Locale.US, "ACK cmd=0x%02X seq=%d status=%d", cmd, ackSeq, status));
                     // [ADD] 锁定期：ACK=BUSY -> 进入暂停态并提示
-                    if (status == 1 /*BUSY*/) {
-                        setPaused(true);
-                    }
-                    // [ADD] 恢复命令成功或设备上报已解除 → 清暂停
-                    if ((cmd == (0x80 + CMD_RESUME_APP)) && status == 0) {
+                    boolean isResumeAck = (cmd == (0x80 + CMD_RESUME_APP));
+                    if (isResumeAck && status == 0) {
+                        // [ADD] 恢复命令成功或设备上报已解除 → 清暂停
                         setPaused(false);
+                    } else if (status == 1 /*BUSY*/) {
+                        setPaused(true);
                     }
                 }
             } else if (cmd == CMD_STATE_RPT) {
