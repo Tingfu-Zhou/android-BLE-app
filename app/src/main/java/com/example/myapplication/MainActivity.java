@@ -75,8 +75,8 @@ public class MainActivity extends AppCompatActivity {
     private volatile boolean pausedByLocal = false;
 
     // ====== Android 12+ 权限 ======
-    private final ActivityResultLauncher<String[]> permLauncher =
-            registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), result -> {});
+    private ActivityResultLauncher<String[]> permLauncher;
+    private boolean pendingConnectRequest = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,10 +92,23 @@ public class MainActivity extends AppCompatActivity {
         adapter = mgr.getAdapter();
         scanner = adapter != null ? adapter.getBluetoothLeScanner() : null;
 
+        permLauncher = registerForActivityResult(new ActivityResultContracts.RequestMultiplePermissions(), result -> {
+            boolean granted = areBlePermissionsGranted();
+            if (pendingConnectRequest) {
+                pendingConnectRequest = false;
+                if (granted) {
+                    startScanAndConnect();
+                }
+            }
+        });
+
         btnConnect.setOnClickListener(v -> {
             if (!isConnected) {
-                requestBlePermissions();
-                startScanAndConnect();
+                if (requestBlePermissions()) {
+                    startScanAndConnect();
+                } else {
+                    pendingConnectRequest = true;
+                }
             } else {
                 disconnectGatt();
             }
@@ -120,20 +133,31 @@ public class MainActivity extends AppCompatActivity {
         }, 500);
     }
 
-    private void requestBlePermissions() {
+    private boolean requestBlePermissions() {
         List<String> req = new ArrayList<>();
+        if (!areBlePermissionsGranted(req)) {
+            permLauncher.launch(req.toArray(new String[0]));
+            return false;
+        }
+        return true;
+    }
+
+    private boolean areBlePermissionsGranted() {
+        return areBlePermissionsGranted(null);
+    }
+
+    private boolean areBlePermissionsGranted(List<String> collector) {
+        List<String> target = collector != null ? collector : new ArrayList<>();
         if (Build.VERSION.SDK_INT >= 31) {
             if (checkSelfPermission(Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED)
-                req.add(Manifest.permission.BLUETOOTH_SCAN);
+                target.add(Manifest.permission.BLUETOOTH_SCAN);
             if (checkSelfPermission(Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED)
-                req.add(Manifest.permission.BLUETOOTH_CONNECT);
+                target.add(Manifest.permission.BLUETOOTH_CONNECT);
         } else {
             if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
-                req.add(Manifest.permission.ACCESS_FINE_LOCATION);
+                target.add(Manifest.permission.ACCESS_FINE_LOCATION);
         }
-        if (!req.isEmpty()) {
-            permLauncher.launch(req.toArray(new String[0]));
-        }
+        return target.isEmpty();
     }
 
     // === 扫描并自动连接到指定设备（名称前缀或 Service 过滤）===

@@ -15,6 +15,12 @@
         android:layout_gravity="end"
         android:visibility="gone" />
 
+    <!-- [9.30] 添加占位空间，将按钮推到中间 -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
     <Button
         android:id="@+id/btnConnect"
         android:text="连接 / 断开"
@@ -40,5 +46,11 @@
         android:textSize="16sp"
         android:layout_marginTop="12dp"
         android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+    <!-- [9.30] 底部占位空间，保持垂直居中 -->
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
 </LinearLayout>
