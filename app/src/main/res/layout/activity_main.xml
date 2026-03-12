@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal">
+
+    <!-- 连接/断开 按钮 -->
+    <Button
+        android:id="@+id/btnConnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="连接 / 断开"
+        android:textSize="18sp"
+        android:layout_marginTop="40dp" />
+
+    <!-- 恢复按钮（默认隐藏） -->
+    <Button
+        android:id="@+id/btnResume"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="已暂停app操作，点击恢复"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:backgroundTint="#FF5722"
+        android:visibility="gone"
+        android:layout_marginTop="16dp" />
+
+    <!-- 连接状态 -->
+    <TextView
+        android:id="@+id/lblConnStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="连接状态：未连接"
+        android:textSize="16sp"
+        android:layout_marginTop="32dp" />
+
+    <!-- 需要发送动作 -->
+    <TextView
+        android:id="@+id/lblNeedAction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="需要发送动作：—"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp" />
+
+    <!-- 最近发送动作 -->
+    <TextView
+        android:id="@+id/lblLastAction"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="最近发送动作：—"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>

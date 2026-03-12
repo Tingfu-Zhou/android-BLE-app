@@ -1,0 +1,159 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.xcup.bletest"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+9        android:targetSdkVersion="34" />
+10
+11    <!-- BLE基础权限 -->
+12    <uses-permission android:name="android.permission.BLUETOOTH" />
+12-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:5:5-68
+12-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:5:22-65
+13    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+13-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:6:5-74
+13-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:6:22-71
+14
+15    <!-- Android 12+ (API 31+) BLE权限 -->
+16    <uses-permission
+16-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:9:5-10:58
+17        android:name="android.permission.BLUETOOTH_SCAN"
+17-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:9:22-70
+18        android:usesPermissionFlags="neverForLocation" />
+18-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:10:9-55
+19    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+19-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:11:5-76
+19-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:11:22-73
+20
+21    <!-- Android 11及以下需要位置权限来扫描BLE -->
+22    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+22-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:14:5-79
+22-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:14:22-76
+23    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+23-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:15:5-81
+23-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:15:22-78
+24
+25    <!-- 声明需要BLE硬件 -->
+26    <uses-feature
+26-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:18:5-20:35
+27        android:name="android.hardware.bluetooth_le"
+27-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:19:9-53
+28        android:required="true" />
+28-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:20:9-32
+29
+30    <permission
+30-->[androidx.core:core:1.9.0] C:\Users\tingf\.gradle\caches\transforms-3\3c99b37c36ab166ca4c0ddc0e40258f4\transformed\core-1.9.0\AndroidManifest.xml:22:5-24:47
+31        android:name="com.xcup.bletest.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+31-->[androidx.core:core:1.9.0] C:\Users\tingf\.gradle\caches\transforms-3\3c99b37c36ab166ca4c0ddc0e40258f4\transformed\core-1.9.0\AndroidManifest.xml:23:9-81
+32        android:protectionLevel="signature" />
+32-->[androidx.core:core:1.9.0] C:\Users\tingf\.gradle\caches\transforms-3\3c99b37c36ab166ca4c0ddc0e40258f4\transformed\core-1.9.0\AndroidManifest.xml:24:9-44
+33
+34    <uses-permission android:name="com.xcup.bletest.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+34-->[androidx.core:core:1.9.0] C:\Users\tingf\.gradle\caches\transforms-3\3c99b37c36ab166ca4c0ddc0e40258f4\transformed\core-1.9.0\AndroidManifest.xml:26:5-97
+34-->[androidx.core:core:1.9.0] C:\Users\tingf\.gradle\caches\transforms-3\3c99b37c36ab166ca4c0ddc0e40258f4\transformed\core-1.9.0\AndroidManifest.xml:26:22-94
+35
+36    <application
+36-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:22:5-38:19
+37        android:allowBackup="true"
+37-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:23:9-35
+38        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+38-->[androidx.core:core:1.9.0] C:\Users\tingf\.gradle\caches\transforms-3\3c99b37c36ab166ca4c0ddc0e40258f4\transformed\core-1.9.0\AndroidManifest.xml:28:18-86
+39        android:debuggable="true"
+40        android:extractNativeLibs="false"
+41        android:icon="@android:drawable/sym_def_app_icon"
+41-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:24:9-58
+42        android:label="@string/app_name"
+42-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:25:9-41
+43        android:supportsRtl="true"
+43-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:26:9-35
+44        android:testOnly="true"
+45        android:theme="@style/Theme.BleTest" >
+45-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:27:9-45
+46        <activity
+46-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:29:9-36:20
+47            android:name="com.xcup.bletest.MainActivity"
+47-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:30:13-41
+48            android:exported="true" >
+48-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:31:13-36
+49            <intent-filter>
+49-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:32:13-35:29
+50                <action android:name="android.intent.action.MAIN" />
+50-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:33:17-69
+50-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:33:25-66
+51
+52                <category android:name="android.intent.category.LAUNCHER" />
+52-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:34:17-77
+52-->C:\Users\tingf\Desktop\android-ble-test\app\src\main\AndroidManifest.xml:34:27-74
+53            </intent-filter>
+54        </activity>
+55
+56        <provider
+56-->[androidx.emoji2:emoji2:1.2.0] C:\Users\tingf\.gradle\caches\transforms-3\e08100e718fef1413b55826cb9672709\transformed\emoji2-1.2.0\AndroidManifest.xml:24:9-32:20
+57            android:name="androidx.startup.InitializationProvider"
+57-->[androidx.emoji2:emoji2:1.2.0] C:\Users\tingf\.gradle\caches\transforms-3\e08100e718fef1413b55826cb9672709\transformed\emoji2-1.2.0\AndroidManifest.xml:25:13-67
+58            android:authorities="com.xcup.bletest.androidx-startup"
+58-->[androidx.emoji2:emoji2:1.2.0] C:\Users\tingf\.gradle\caches\transforms-3\e08100e718fef1413b55826cb9672709\transformed\emoji2-1.2.0\AndroidManifest.xml:26:13-68
+59            android:exported="false" >
+59-->[androidx.emoji2:emoji2:1.2.0] C:\Users\tingf\.gradle\caches\transforms-3\e08100e718fef1413b55826cb9672709\transformed\emoji2-1.2.0\AndroidManifest.xml:27:13-37
+60            <meta-data
+60-->[androidx.emoji2:emoji2:1.2.0] C:\Users\tingf\.gradle\caches\transforms-3\e08100e718fef1413b55826cb9672709\transformed\emoji2-1.2.0\AndroidManifest.xml:29:13-31:52
+61                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+61-->[androidx.emoji2:emoji2:1.2.0] C:\Users\tingf\.gradle\caches\transforms-3\e08100e718fef1413b55826cb9672709\transformed\emoji2-1.2.0\AndroidManifest.xml:30:17-75
+62                android:value="androidx.startup" />
+62-->[androidx.emoji2:emoji2:1.2.0] C:\Users\tingf\.gradle\caches\transforms-3\e08100e718fef1413b55826cb9672709\transformed\emoji2-1.2.0\AndroidManifest.xml:31:17-49
+63            <meta-data
+63-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\tingf\.gradle\caches\transforms-3\f48c1fd2f8e2f06f78bd9c2c082f3d1b\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:29:13-31:52
+64                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+64-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\tingf\.gradle\caches\transforms-3\f48c1fd2f8e2f06f78bd9c2c082f3d1b\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:30:17-78
+65                android:value="androidx.startup" />
+65-->[androidx.lifecycle:lifecycle-process:2.6.1] C:\Users\tingf\.gradle\caches\transforms-3\f48c1fd2f8e2f06f78bd9c2c082f3d1b\transformed\lifecycle-process-2.6.1\AndroidManifest.xml:31:17-49
+66            <meta-data
+66-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\tingf\.gradle\caches\transforms-3\1db90775fea671b69a7707e5ed937e45\transformed\profileinstaller-1.3.0\AndroidManifest.xml:29:13-31:52
+67                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+67-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\tingf\.gradle\caches\transforms-3\1db90775fea671b69a7707e5ed937e45\transformed\profileinstaller-1.3.0\AndroidManifest.xml:30:17-85
+68                android:value="androidx.startup" />
+68-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\tingf\.gradle\caches\transforms-3\1db90775fea671b69a7707e5ed937e45\transformed\profileinstaller-1.3.0\AndroidManifest.xml:31:17-49
+69        </provider>
+70
+71        <receiver
+71-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\tingf\.gradle\caches\transforms-3\1db90775fea671b69a7707e5ed937e45\transformed\profileinstaller-1.3.0\AndroidManifest.xml:34:9-52:20
+72            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+72-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\tingf\.gradle\caches\transforms-3\1db90775fea671b69a7707e5ed937e45\transformed\profileinstaller-1.3.0\AndroidManifest.xml:35:13-76
+73            android:directBootAware="false"
+73-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\tingf\.gradle\caches\transforms-3\1db90775fea671b69a7707e5ed937e45\transformed\profileinstaller-1.3.0\AndroidManifest.xml:36:13-44
+74            android:enabled="true"
+74-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\tingf\.gradle\caches\transforms-3\1db90775fea671b69a7707e5ed937e45\transformed\profileinstaller-1.3.0\AndroidManifest.xml:37:13-35
+75            android:exported="true"
+75-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\tingf\.gradle\caches\transforms-3\1db90775fea671b69a7707e5ed937e45\transformed\profileinstaller-1.3.0\AndroidManifest.xml:38:13-36
+76            android:permission="android.permission.DUMP" >
+76-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\tingf\.gradle\caches\transforms-3\1db90775fea671b69a7707e5ed937e45\transformed\profileinstaller-1.3.0\AndroidManifest.xml:39:13-57
+77            <intent-filter>
+77-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\tingf\.gradle\caches\transforms-3\1db90775fea671b69a7707e5ed937e45\transformed\profileinstaller-1.3.0\AndroidManifest.xml:40:13-42:29
+78                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+78-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\tingf\.gradle\caches\transforms-3\1db90775fea671b69a7707e5ed937e45\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:17-91
+78-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\tingf\.gradle\caches\transforms-3\1db90775fea671b69a7707e5ed937e45\transformed\profileinstaller-1.3.0\AndroidManifest.xml:41:25-88
+79            </intent-filter>
+80            <intent-filter>
+80-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\tingf\.gradle\caches\transforms-3\1db90775fea671b69a7707e5ed937e45\transformed\profileinstaller-1.3.0\AndroidManifest.xml:43:13-45:29
+81                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+81-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\tingf\.gradle\caches\transforms-3\1db90775fea671b69a7707e5ed937e45\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:17-85
+81-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\tingf\.gradle\caches\transforms-3\1db90775fea671b69a7707e5ed937e45\transformed\profileinstaller-1.3.0\AndroidManifest.xml:44:25-82
+82            </intent-filter>
+83            <intent-filter>
+83-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\tingf\.gradle\caches\transforms-3\1db90775fea671b69a7707e5ed937e45\transformed\profileinstaller-1.3.0\AndroidManifest.xml:46:13-48:29
+84                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+84-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\tingf\.gradle\caches\transforms-3\1db90775fea671b69a7707e5ed937e45\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:17-88
+84-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\tingf\.gradle\caches\transforms-3\1db90775fea671b69a7707e5ed937e45\transformed\profileinstaller-1.3.0\AndroidManifest.xml:47:25-85
+85            </intent-filter>
+86            <intent-filter>
+86-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\tingf\.gradle\caches\transforms-3\1db90775fea671b69a7707e5ed937e45\transformed\profileinstaller-1.3.0\AndroidManifest.xml:49:13-51:29
+87                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+87-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\tingf\.gradle\caches\transforms-3\1db90775fea671b69a7707e5ed937e45\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:17-95
+87-->[androidx.profileinstaller:profileinstaller:1.3.0] C:\Users\tingf\.gradle\caches\transforms-3\1db90775fea671b69a7707e5ed937e45\transformed\profileinstaller-1.3.0\AndroidManifest.xml:50:25-92
+88            </intent-filter>
+89        </receiver>
+90    </application>
+91
+92</manifest>

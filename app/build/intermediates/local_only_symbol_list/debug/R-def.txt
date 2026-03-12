@@ -1,0 +1,10 @@
+R_DEF: Internal format may change without notice
+local
+id btnConnect
+id btnResume
+id lblConnStatus
+id lblLastAction
+id lblNeedAction
+layout activity_main
+string app_name
+style Theme.BleTest
